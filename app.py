@@ -52,7 +52,7 @@ geo_encode=ohe_encoder.transform([[geography]])
 geo_encode_df=pd.DataFrame(geo_encode,columns=ohe_encoder.get_feature_names_out(['Geography']))
 
 input_data=pd.concat([input_data.reset_index(drop=True),geo_encode_df],axis=1)
-input_data=scaler.tranform(input_data)
+input_data=scaler.transform(input_data)
 prediction=model.predict(input_data)
 predict_proba=prediction[0][0]
 if predict_proba>0.5:
